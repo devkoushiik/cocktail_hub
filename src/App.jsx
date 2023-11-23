@@ -1,14 +1,28 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { About, HomeLayout } from "./pages";
+import { About, Cocktail, HomeLayout, Landing, NewsLatter } from "./pages";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout />,
-  },
-  {
-    path: "/about",
-    element: <About />,
+    children: [
+      {
+        index: true,
+        element: <Landing />,
+      },
+      {
+        path: "cocktail",
+        element: <Cocktail />,
+      },
+      {
+        path: "newsletter",
+        element: <NewsLatter />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+    ],
   },
 ]);
 
@@ -17,3 +31,5 @@ const App = () => {
 };
 
 export default App;
+
+// [{}] for making route.
