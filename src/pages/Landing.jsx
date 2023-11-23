@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import axios from "axios";
+import { CocktailList } from "../components";
 
 const cocktailSearchUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
@@ -16,6 +17,10 @@ const Loading = () => {
   const { drinks, searchTerm } = useLoaderData();
   console.log(drinks);
 
-  return <div>Landing Page</div>;
+  return (
+    <>
+      <CocktailList drinks={drinks} />
+    </>
+  );
 };
 export default Loading;
