@@ -11,7 +11,6 @@ export const action = async ({ request }) => {
   try {
     const response = await axios.post(newsletterUrl, data);
     toast.success(response.data.msg);
-    console.log(response);
     return redirect("/");
   } catch (error) {
     toast.error(error?.response?.data?.msg);
