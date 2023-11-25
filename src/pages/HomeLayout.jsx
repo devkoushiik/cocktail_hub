@@ -9,8 +9,19 @@ const HomeLayout = () => {
     <>
       <Navbar />
       <section className="page">
-        {isPageLoading ? <div className="loading" /> : <Outlet />}
-        <Outlet />
+        {isPageLoading ? (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div className="loading" />
+          </div>
+        ) : (
+          <Outlet />
+        )}
       </section>
     </>
   );
