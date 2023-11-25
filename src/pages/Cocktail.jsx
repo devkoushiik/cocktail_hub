@@ -40,16 +40,12 @@ const Cocktail = () => {
     strInstructions: instructions,
   } = singleDrink;
 
-  console.log(singleDrink);
-
   // pulling without null gradient value.
   const validIngredients = Object.keys(singleDrink)
     .filter(
       (key) => key.startsWith("strIngredient") && singleDrink[key] !== null
     )
     .map((key) => singleDrink[key]);
-
-  console.log(validIngredients, "d");
 
   return (
     <Wrapper>
