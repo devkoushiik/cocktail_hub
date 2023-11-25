@@ -6,7 +6,7 @@ const CocktailList = ({ drinks }) => {
       <h4 style={{ textAlign: "center" }}>No matching cocktail found...</h4>
     );
 
-  const formattedDrinks = drinks.map((item) => {
+  const formattedDrinks = drinks?.map((item) => {
     const { idDrink, strDrink, strDrinkThumb, strAlcoholic, strGlass } = item;
     return {
       id: idDrink,
@@ -16,7 +16,7 @@ const CocktailList = ({ drinks }) => {
       glass: strGlass,
     };
   });
-  console.log(formattedDrinks, "d");
+
   return (
     <Wrapper>
       {formattedDrinks.map((item) => {
