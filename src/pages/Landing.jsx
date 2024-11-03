@@ -5,14 +5,19 @@ import { CocktailList, SearchForm } from "../components";
 
 const cocktailSearchUrl =
   "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
+const cocktailSearchUrl2 =
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
 // useQuery with parameter returner.
 const searchCocktailsquery = (searchTerm) => {
   return {
     queryKey: ["search", searchTerm || "all"],
     queryFn: async () => {
+      if (searchTerm) {
+        const response = await axios.get(`${cocktailSearchUrl2}${searchTerm}`);
+        return response.data.drinks;
+      }
       const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
-      console.log(response);
       return response.data.drinks;
     },
   };
