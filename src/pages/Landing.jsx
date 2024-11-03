@@ -4,7 +4,7 @@ import axios from "axios";
 import { CocktailList, SearchForm } from "../components";
 
 const cocktailSearchUrl =
-  "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+  "https://www.thecocktaildb.com/api/json/v1/1/search.php?f=a";
 
 // useQuery with parameter returner.
 const searchCocktailsquery = (searchTerm) => {
@@ -12,6 +12,7 @@ const searchCocktailsquery = (searchTerm) => {
     queryKey: ["search", searchTerm || "all"],
     queryFn: async () => {
       const response = await axios.get(`${cocktailSearchUrl}${searchTerm}`);
+      console.log(response);
       return response.data.drinks;
     },
   };
